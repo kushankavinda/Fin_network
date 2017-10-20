@@ -29,6 +29,9 @@
 </style>
 </head>
 <%String company=request.getParameter("param");%>
+<script>
+var company_to_pass_draw_me="<%=company%>";
+</script>
 <body class="nav-md">
 	<div class="container body">
 		<div class="main_container">
@@ -50,7 +53,7 @@
 						<div class="menu_section">
 							<h3>General</h3>
 								<ul class="nav side-menu">
-								<li><a><i class="fa fa-home"></i> Annual Basis <span
+								<li><a><i class="fa fa-calendar"></i>All Companies <span
 										class="fa fa-chevron-down"></span></a>
 									<ul class="nav child_menu">
 										<li><a >2011</a></li>
@@ -60,23 +63,9 @@
 										<li><a >2015</a></li>
 										<li><a >2016</a></li>
 									</ul></li>
-							   <li><a><i class="fa fa-home"></i> Company Basis <span class="fa fa-chevron-down"></span></a>
-                    <ul class="nav child_menu">
-                      <li><a href="companyYearWise.jsp?param=AMERICAN EXPRESS CO" id="sid_14">AMERICAN EXPRESS CO</a></li>
-                      <li><a href="companyYearWise.jsp?param=JP Morgan Chase" id="sid_16">JP Morgan Chase</a></li>
-                      <li><a href="" id="sid_25">US Bank</a></li>
-                      <li><a href="" id="sid_19">Morgan Stanley</a></li>
-                      <li><a href="" id="sid_6">CapitalOne</a></li>
-                      <li><a href="" id="sid_3">Bank of America CORP</a></li>
-                    </ul>
-                  </li>
-                      <li><a><i class="fa fa-home"></i>Compare by years <span
-										class="fa fa-chevron-down"></span></a>
-									<ul class="nav child_menu">
-										<li><a href="AMERICAN EXPRESS CO.html">AMERICAN EXPRESS CO</a></li>
-										<li><a>JP Morgan Chase</a></li>
-										
-						</ul></li>
+						
+                      <li><a href="compareByYears.jsp?param=<%=company%>"><i class="fa fa-home"></i>Compare by years</a>
+							</li>
 
 							</ul>
 						</div>
@@ -108,8 +97,8 @@
 
 							<div class="row x_title">
 								<div class="col-md-6">
-									<h3>
-										AMERICAN EXPRESS CO <small>Annual Basis</small>
+									<h3 id="company_name">
+										<%=company%>
 									</h3>
 								</div>
 								<div class="col-md-6">
@@ -121,23 +110,16 @@
 								<div id="container" class="demo-placeholder" style="height: 500px;">
 										<nav aria-label="Page navigation example" style="float:right;margin-top:0">
 						<ul class="pagination">
-							<li class="page-item"><a class="page-link" href="#"
-								aria-label="Previous"> <span aria-hidden="true">&laquo;</span>
-									<span class="sr-only">Previous</span>
-							</a></li>
+							
 						
-							<li class="page-item" id="2009_y"><a class="page-link" >2009</a></li>
-							<li class="page-item" id="2010_y"><a class="page-link" >2010</a></li>
+							
 							<li class="page-item" id="2011_y"><a class="page-link" >2011</a></li>
 							<li class="page-item" id="2012_y"><a class="page-link" >2012</a></li>
 							<li class="page-item" id="2013_y"><a class="page-link" >2013</a></li>
 							<li class="page-item" id="2014_y"><a class="page-link" >2014</a></li>
 							<li class="page-item" id="2015_y"><a class="page-link" >2015</a></li>
 							<li class="page-item" id="2016_y"><a class="page-link" >2016</a></li>
-							<li class="page-item" id=""><a class="page-link" href="#"
-								aria-label="Next"> <span aria-hidden="true">&raquo;</span> <span
-									class="sr-only">Next</span>
-							</a></li>
+							
 						</ul>
 					</nav>								
 							    </div>
@@ -175,20 +157,19 @@
 	<script src="js/d3.v4.min.js"></script>
 	<script src="js/d3-selection-multi.v1.js"></script>
 	<script src="js/graph_draw.js"></script>
-
+<% //	String a="../../FinNetwork/rest/company_name/2016&"+company; %>
 	<script>
+	
      $(document).ready(function (){
              $('.ui-pnotify').remove();
-       
      // draw_me("2011_data");
-      $('#2009_y').click(function(){ draw_me("../../FinNetwork/rest/company_name/2009&AMERICAN EXPRESS CO"); $("#show_year").text("2009"); return false; });
-       $('#2010_y').click(function(){ draw_me("../../FinNetwork/rest/company_name/2010&AMERICAN EXPRESS CO"); $("#show_year").text("2010"); return false; });
-      $('#2011_y').click(function(){ draw_me("../../FinNetwork/rest/company_name/2011&AMERICAN EXPRESS CO"); $("#show_year").text("2011"); return false; });
-      $('#2012_y').click(function(){ draw_me("../../FinNetwork/rest/company_name/2012&AMERICAN EXPRESS CO"); $("#show_year").text("2012");return false; });
-      $('#2013_y').click(function(){ draw_me("../../FinNetwork/rest/company_name/2013&AMERICAN EXPRESS CO"); $("#show_year").text("2014");return false; });
-      $('#2014_y').click(function(){ draw_me("../../FinNetwork/rest/company_name/2014&AMERICAN EXPRESS CO"); $("#show_year").text("2014");return false; });
-      $('#2015_y').click(function(){ draw_me("../../FinNetwork/rest/company_name/2015&AMERICAN EXPRESS CO"); $("#show_year").text("2015");return false; });
-      $('#2016_y').click(function(){ draw_me("../../FinNetwork/rest/company_name/2016&AMERICAN EXPRESS CO"); $("#show_year").text("2016"); return false; });
+      
+      $('#2011_y').click(function(){ draw_me("../../FinNetwork/rest/company_name/2011&"+company_to_pass_draw_me); $("#show_year").text("2011"); return false; });
+      $('#2012_y').click(function(){ draw_me("../../FinNetwork/rest/company_name/2012&"+company_to_pass_draw_me); $("#show_year").text("2012");return false; });
+      $('#2013_y').click(function(){ draw_me("../../FinNetwork/rest/company_name/2013&"+company_to_pass_draw_me); $("#show_year").text("2014");return false; });
+      $('#2014_y').click(function(){ draw_me("../../FinNetwork/rest/company_name/2014&"+company_to_pass_draw_me); $("#show_year").text("2014");return false; });
+      $('#2015_y').click(function(){ draw_me("../../FinNetwork/rest/company_name/2015&"+company_to_pass_draw_me); $("#show_year").text("2015");return false; });
+      $('#2016_y').click(function(){ draw_me("../../FinNetwork/rest/company_name/2016&"+company_to_pass_draw_me); $("#show_year").text("2016");return false; });
 
 
     

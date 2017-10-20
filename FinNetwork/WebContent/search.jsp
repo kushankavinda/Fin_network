@@ -56,15 +56,8 @@
                   <li><a href="index.html"><i class="fa fa-calendar"></i> Annual Basis <span class="fa fa-chevron-down"></span></a>
                     
                   </li>
-                  <li><a><i class="fa fa-home"></i> Company Basis <span class="fa fa-chevron-down"></span></a>
-                    <ul class="nav child_menu">
-                      <li><a href="" id="sid_14">Goldman</a></li>
-                      <li><a href="" id="sid_16">JP Morgan Chase</a></li>
-                      <li><a href="" id="sid_25">US Bank</a></li>
-                      <li><a href="" id="sid_19">Morgan Stanley</a></li>
-                      <li><a href="" id="sid_6">CapitalOne</a></li>
-                      <li><a href="" id="sid_3">Bank of America CORP</a></li>
-                    </ul>
+                  <li><a href="search.jsp"><i class="fa fa-home"></i> Company Basis </a>
+                    
                   </li>                
               
                 </ul>
@@ -115,10 +108,12 @@
                		<div>
                			<%  List<String> finalList = SearchController.searchCompanies(); %> 
 						    <ul id="finalList" style="list-style:none;">
-						    <%
+						    <% 
 						    for(int i=0; i<finalList.size(); i++){ %>					    	
 						    	<li style="display:none;"><a href="#" onclick="returnURL(this); return false;"><%= finalList.get(i) %></a></li>					    					    	
 					    <% } %>
+					    
+					    
 					    
 					   </ul>
                		</div>

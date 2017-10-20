@@ -340,7 +340,7 @@ function draw_us(url,side){
 	d3.json(  url , function(error, graph) {
 	  if (error) throw error;
 	  
-	  console.log(graph);
+	 // console.log(graph);
 	 // analyseGraph(graph,0);
 
 	  var link = svg.append("g")
@@ -600,11 +600,11 @@ function draw_us(url,side){
 	}
 
 
-function analyseGraph(url,otherYear){
+function analyseGraph(url,otherYear,company_name){
 	var urlR="../../FinNetwork/rest/company_name/" +url;
-	var urlL="../../FinNetwork/rest/company_name/" +otherYear+"&AMERICAN EXPRESS CO";
+	var urlL="../../FinNetwork/rest/company_name/" +otherYear+"&"+company_name;
 	var graphRight,graphLeft;
-	console.log("came here");
+	console.log("came here : "+urlR +" : "+urlL);
 	d3.json(  urlR , function(error,graphRight) {
 		  if (error) throw error;
 		  console.log("came here2 : "+Object.keys(graphRight.nodes).length);
