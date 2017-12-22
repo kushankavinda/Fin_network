@@ -835,6 +835,7 @@ function draw_me_new(url){
 	            // check all other nodes to see if they're connected
 	            // to this one. if so, keep the opacity at 1, otherwise
 	            // fade
+	        
 	            node.style("stroke-opacity", function(o) {
 	                thisOpacity = isConnected(d, o) ? 1 : opacity;
 	                return thisOpacity;
